@@ -7,6 +7,7 @@
    */
 
 
+//Vertex shader
 var VSHADER_SOURCE =
   'attribute vec4 a_Position;\n' +
   'attribute vec4 a_Color;\n' +
@@ -60,12 +61,12 @@ var verticesColors = new Float32Array([
   275.0,150.0, 225.0, pR, pG, pB,
   225.0,150.0, 225.0, pR, pG, pB,
 
-  310.0,180.0, 310.0, pR, pG, pB,  //Second Pyramid
-  285.0,150.0, 285.0, pR, pG, pB,
-  285.0,150.0, 335.0, pR, pG, pB,
-  335.0,150.0, 335.0, pR, pG, pB,
-  335.0,150.0, 285.0, pR, pG, pB,
-  285.0,150.0, 285.0, pR, pG, pB,
+  //310.0,180.0, 310.0, pR, pG, pB,  //Second Pyramid
+  //285.0,150.0, 285.0, pR, pG, pB,
+  //285.0,150.0, 335.0, pR, pG, pB,
+  //335.0,150.0, 335.0, pR, pG, pB,
+  //335.0,150.0, 285.0, pR, pG, pB,
+  //285.0,150.0, 285.0, pR, pG, pB,
 
 ]);
 
@@ -216,17 +217,21 @@ var xAxis = 0;
 // Last time that this function was called
 var g_last = Date.now();
 function animate(angle) {
+  //Print out a 1 for X or Y axis of rotation being activated, 0 for deactivated
   document.getElementById("xAxisRot").innerHTML = "X: " + xAxis;
   document.getElementById("yAxisRot").innerHTML = "Y: " + yAxis;
+  
   // Calculate the elapsed time
   var now = Date.now();
   var elapsed = now - g_last;
   g_last = now;
+  
   // Update the current rotation angle (adjusted by the elapsed time)
   var newAngle = angle + (ANGLE_STEP * elapsed) / 1000.0;
   return newAngle %= 360;
 }
 
+//Rotate about xAxis
 function xAxisRotation() {
   if(xAxis == 1) {
       xAxis = 0;
@@ -235,6 +240,7 @@ function xAxisRotation() {
   }
 }
 
+//Rotate about yAxis
 function yAxisRotation() {
   if(yAxis == 1) {
     yAxis = 0;
