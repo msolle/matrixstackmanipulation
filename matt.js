@@ -1,5 +1,9 @@
 /* Matthew P. Solle
+   03/06/2014
+   UNCA 342 Graphics
 
+   A house rotating in 3-Dimensional space about either the X-axis, the Z-axis, or both.
+   The door rotates along the entrance way frame while the rest rotates around the canvas origin.
    */
 
 
